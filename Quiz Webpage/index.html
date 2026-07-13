@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="quiz for freecodecamp" />
+    <title>Quiz for Webpage</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
+        id="logo"
+        alt="freeCodeCamp"
+      />
+      <h1>HTML/CSS Quiz</h1>
+      <nav>
+        <ul>
+          <li><a href="#student-info">INFO</a></li>
+          <li><a href="#html-questions">HTML</a></li>
+          <li><a href="#css-questions">CSS</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form
+        action="https://freecodecamp.org/practice-project/accessibility-quiz"
+        method="post"
+      >
+        <section role="region" aria-labelledby="student-info">
+          <h2 id="student-info">Student Info</h2>
+          <div class="info">
+            <label for="full-name">Name</label>
+            <input type="text" name="name" id="full-name" />
+
+            <div class="info">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" />
+
+              <div class="info">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section role="region" aria-labelledby="html-questions">
+          <h2 id="html-questions">HTML Questions</h2>
+          <div class="question-block">
+            <h3>
+              <span class="sr-only">Question</span>
+              1
+            </h3>
+            <fieldset class="question" name="questions">
+              <legend>True/False I</legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q1-a1"
+                    ><input
+                      type="radio"
+                      id="q1-a1"
+                      value="False"
+                      name="question-1"
+                    />False</label
+                  >
+                  <option value=""></option>
+                </li>
+                <li>
+                  <label for="q1-a2"
+                    ><input
+                      type="radio"
+                      id="q1-a2"
+                      value="True"
+                      name="question-1"
+                    />True</label
+                  >
+                  <option value=""></option>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+          <div class="question-block">
+            <h3>
+              <span class="sr-only">Question</span>
+              2
+            </h3>
+            <fieldset class="question" name="questions">
+              <legend>True/False II</legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q2-a1"
+                    ><input
+                      type="radio"
+                      id="q2-a1"
+                      value="True"
+                      name="question-2"
+                    />True</label
+                  >
+                  <option value=""></option>
+                </li>
+                <li>
+                  <label for="q2-a2"
+                    ><input
+                      type="radio"
+                      id="q2-a2"
+                      value="False"
+                      name="question-2"
+                    />False</label
+                  >
+                  <option value=""></option>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+        </section>
+        <section role="region" aria-labelledby="css-questions">
+          <h2 id="css-questions">CSS Questions</h2>
+          <div class="formrow">
+            <div class="question-block">
+              <label for="select">What is CSS?</label>
+            </div>
+            <div class="answer">
+              <select name="select" id="select" required>
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="question-block">  
+              <label for="px">how to use px?</label>
+            </div>
+            <div class="answer">
+              <textarea name="px" id="px" cols="40" rows="10"></textarea>
+            </div>
+          </div>
+        </section>
+        <button type="submit">Send</button>
+      </form>
+    </main>
+    <footer>
+      <address>
+        <a href="https://freecodecamp.org">freeCodeCamp</a><br />
+        San Francisco<br />
+        California<br />
+        USA
+      </address>
+    </footer>
+  </body>
+</html>

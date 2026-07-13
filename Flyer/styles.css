@@ -1,0 +1,41 @@
+body {
+    padding: 50px 10px;
+    margin: 0 auto;
+    width: 90vw;
+    background-color: antiquewhite;
+    font-family: sans-serif;
+    text-align: center;
+    min-height: calc(100vh - 100px);
+}
+
+header {
+    text-align: center;
+    margin: 50px;
+}
+
+hr {
+    border: 1px solid black;
+    margin: 30px auto;
+    width: 80%;
+    height: 2px;
+    background-color: black;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    min-width: 1000px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 20px 10px;
+    width: 30%;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    text-align: left;
+}

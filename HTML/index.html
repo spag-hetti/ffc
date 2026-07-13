@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Wizard</title>
+  <style>
+    body {
+      font-family: serif;
+      background: #f5f5f5;
+    }
+
+    .card {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .active {
+      font-weight: bold;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    input {
+      border: 1px solid #ccc;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+    }
+
+    .black {
+      background: black;
+      color: white;
+    }
+
+    .purple {
+      background: purple;
+      color: white;
+    }
+
+    .room-btn {
+      border: 1px solid #ccc;
+      background: white;
+    }
+
+    .room-btn:hover {
+      background: #f0f0f0;
+    }
+
+    .summary {
+      background: #eee;
+      padding: 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- STEP INDICATOR -->
+  <div class="steps">
+    <span id="step1label" class="active">Dates</span>
+    <span id="step2label">Room</span>
+    <span id="step3label">Confirm</span>
+  </div>
+
+  <!-- STEP CONTENT -->
+  <div id="content"></div>
+
+</div>
+
+<script>
+  const rooms = [
+    { id: 1, name: "Standard Room", price: 2500 },
+    { id: 2, name: "Deluxe Room", price: 4000 },
+    { id: 3, name: "Ocean Villa", price: 8000 }
+  ];
+
+  let step = 1;
+
+  let data = {
+    checkIn: "",
+    checkOut: "",
+    roomId: 1
+  };
+
+  const content = document.getElementById("content");
+
+  function render() {
+    updateStepLabels();
+
+    if (step === 1) renderStep1();
+    if (step === 2) renderStep2();
+    if (step === 3) renderStep3();
+  }
+
+  function updateStepLabels() {
+    document.getElementById("step1label").className = step === 1 ? "active" : "";
+    document.getElementById("step2label").className = step === 2 ? "active" : "";
+    document.getElementById("step3label").className = step === 3 ? "active" : "";
+  }
+
+  function renderStep1() {
+    content.innerHTML = `
+      <input type="date" id="checkIn" />
+      <input type="date" id="checkOut" />
+      <button class="black" onclick="nextStep1()">Next</button>
+    `;
+  }
+
+  function renderStep2() {
+    content.innerHTML = rooms.map(r => `
+      <button class="room-btn" onclick="selectRoom(${r.id})">
+        ${r.name} — ₱${r.price}
+      </button>
+    `).join("");
+  }
+
+  function renderStep3() {
+    const room = rooms.find(r => r.id === data.roomId);
+
+    content.innerHTML = `
+      <div class="summary">
+        <p>Room: ${room?.name}</p>
+        <p>${data.checkIn} → ${data.checkOut}</p>
+      </div>
+
+      <button class="purple" onclick="confirmBooking()">
+        Confirm Booking
+      </button>
+    `;
+  }
+
+  function nextStep1() {
+    data.checkIn = document.getElementById("checkIn").value;
+    data.checkOut = document.getElementById("checkOut").value;
+    step = 2;
+    render();
+  }
+
+  function selectRoom(id) {
+    data.roomId = id;
+    step = 3;
+    render();
+  }
+
+  function confirmBooking() {
+    alert("Booking confirmed");
+  }
+
+  render();
+</script>
+
+</body>
+</html>

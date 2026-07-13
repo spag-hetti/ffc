@@ -1,0 +1,28 @@
+body{
+    background-color: #F4F4F4;
+}
+
+.color-box{
+    width: 20px;
+    height: 20px;
+}
+
+.color1{
+    background-color: #7c3737;
+}
+
+.color2{
+    background-color: rgb(234, 211, 211);
+}
+
+.color3{
+    background-color: orange;
+}
+
+.color4{
+    background-color: hsl(255, 100%, 0%);
+}
+
+.color5{
+    background-color: aliceblue;
+}
